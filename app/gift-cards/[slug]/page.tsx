@@ -6,19 +6,19 @@ import { giftCards } from '../../../data/giftcards'
 import { useMemo, useState } from 'react'
 
 export default function GiftCardProductPage() {
-  const params = useParams<{ slug: string }>()
+  const params = useParams<{ slug: string }>(): { slug: string }
   const searchParams = useSearchParams()
 
   const card = useMemo(() => giftCards.find(c => c.slug === params.slug), [params.slug])
-  if (!card) {
-    return <div className="p-8">Gift card not found.</div>
-  }
-
-  const amounts = card.denominations
+  const amounts = card?.denominations ?? []
 
   const [amount, setAmount] = useState<number>(amounts[0] ?? 100)
   const [plan, setPlan] = useState<number | null>(null)
   const [loading, setLoading] = useState(false)
+
+  if (!card) {
+    return <div className="p-8">Gift card not found.</div>
+  }
 
   const perInstallment = amount && plan ? (amount / plan) : null
   const error = searchParams.get('error')

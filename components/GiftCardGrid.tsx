@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { giftCards } from 'data/giftcards'
+import { giftCards } from '../data/giftcards'
 
 export default function GiftCardGrid() {
   async function startCheckout(productName: string, amount: number, installments = 3) {
@@ -27,7 +27,7 @@ export default function GiftCardGrid() {
   return (
     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       {giftCards.map(gc => {
-        const amount = (gc.prices?.[gc.prices.length - 1] ?? 100)
+        const amount = (gc.denominations?.[gc.denominations.length - 1] ?? 100)
         const split = 4
         const each = Math.round(amount / split)
         const stock = gc.codes?.length ?? 0
@@ -37,7 +37,7 @@ export default function GiftCardGrid() {
             <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-[#32ff8a]/30 blur-2xl" />
             <div className="rounded-2xl bg-white/5 border border-white/15 p-5 h-40 flex flex-col justify-between shadow-soft">
               <div className="flex items-center justify-between">
-                <span className="text-white/90 font-medium tracking-wide">{gc.name}</span>
+                <span className="text-white/90 font-medium tracking-wide">{gc.brand}</span>
                 <span className="text-white/60 text-sm">Gift Card</span>
               </div>
               <div>

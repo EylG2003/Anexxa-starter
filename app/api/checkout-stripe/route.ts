@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { stripe, SITE_URL } from '@/lib/stripe'
-import giftcards from 'data/giftcards'
+import { giftCards } from '../../../data/giftcards'
 
 const VALID_PLANS = new Set([3, 4, 6, 12])
 
@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
     const a = Number(amount)
     const p = Number(plan)
 
-    const gc = giftcards.find(g => g.slug === s)
+    const gc = giftCards.find(g => g.slug === s)
     if (!gc) return NextResponse.json({ ok: false, error: 'invalid_slug' }, { status: 400 })
     if (!Number.isFinite(a) || a <= 0) return NextResponse.json({ ok: false, error: 'invalid_amount' }, { status: 400 })
     if (!VALID_PLANS.has(p)) return NextResponse.json({ ok: false, error: 'invalid_plan' }, { status: 400 })

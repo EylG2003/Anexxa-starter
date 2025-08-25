@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { giftCards } from 'data/giftcards'
+import { giftCards } from '../../data/giftcards'
 
 export const metadata = { title: 'Anexxa BNPL — For Shoppers' }
 
