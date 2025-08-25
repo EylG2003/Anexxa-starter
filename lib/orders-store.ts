@@ -1,4 +1,4 @@
-import { giftCards as giftcards, GiftCardProduct } from 'data/giftcards';
+import { giftCards as giftcards, type GiftCard } from 'data/giftcards';
 
 export type Order = {
   id: string;
@@ -16,7 +16,7 @@ export type Order = {
 class OrdersStoreClass {
   public orders: Order[] = [];
 
-  private findProduct(slug: string): GiftCardProduct | undefined {
+  private findProduct(slug: string): GiftCard | undefined {
     return giftcards.find(g => g.slug === slug);
   }
 

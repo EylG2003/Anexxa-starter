@@ -1,19 +1,20 @@
 'use client'
 
 import Link from 'next/link'
-import { useParams, useSearchParams, notFound } from 'next/navigation'
-import { giftCards } from 'data/giftcards'
+import { useParams, useSearchParams } from 'next/navigation'
+import { giftCards } from '../../../data/giftcards'
 import { useMemo, useState } from 'react'
 
 export default function GiftCardProductPage() {
   const params = useParams<{ slug: string }>()
   const searchParams = useSearchParams()
-  const slug = params.slug
-  const card = useMemo(() => giftCards.find(g => g.slug === slug), [slug])
 
-  if (!card) return notFound()
+  const card = useMemo(() => giftCards.find(c => c.slug === params.slug), [params.slug])
+  if (!card) {
+    return <div className="p-8">Gift card not found.</div>
+  }
 
-  const amounts = (card.prices ?? card.denominations ?? []) as number[]
+  const amounts = card.denominations
 
   const [amount, setAmount] = useState<number>(amounts[0] ?? 100)
   const [plan, setPlan] = useState<number | null>(null)
@@ -29,7 +30,7 @@ export default function GiftCardProductPage() {
       const res = await fetch('/api/checkout-stripe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ slug, amount, plan }),
+        body: JSON.stringify({ slug: card.slug, amount, plan }),
       })
       if (!res.ok) throw new Error('Failed to create subscription checkout')
       const data = await res.json()
@@ -51,7 +52,7 @@ export default function GiftCardProductPage() {
       <div className="container-xl space-y-6">
         <div className="space-y-2">
           <p className="badge">Gift Card</p>
-          <h1 className="h1">{card.name}</h1>
+          <h1 className="h1">{card.brand}</h1>
           {error === 'out_of_stock' && (
             <div className="card p-3 bg-emerald-500/10 border border-emerald-400/30 text-emerald-100">
               Sorry — this card is out of stock right now.
