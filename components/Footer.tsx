@@ -32,14 +32,14 @@ export default function Footer() {
         <div>
           <p className="font-semibold mb-3">Legal</p>
           <ul className="space-y-2 text-sm">
-            <li><a className="hover:underline" href="#">Terms</a></li>
-            <li><a className="hover:underline" href="#">Privacy</a></li>
-            <li><a className="hover:underline" href="#">Licensing</a></li>
+            <li><Link className="hover:underline" href="/terms">Terms</Link></li>
+            <li><Link className="hover:underline" href="/privacy">Privacy</Link></li>
+            <li><Link className="hover:underline" href="/refunds">Refunds</Link></li>
           </ul>
         </div>
       </div>
       <div className="container-xl py-6 text-xs text-white/50 border-t border-white/10">
-        © {new Date().getFullYear()} Anexxa. All rights reserved.
+        &copy; {new Date().getFullYear()} Anexxa. All rights reserved.
       </div>
     </footer>
   );

@@ -1,21 +1,22 @@
-export const metadata = { title: 'Refund Policy — Anexxa' }
-
+export const metadata = { title: "Refund Policy — Anexxa" };
 export default function RefundsPage() {
+  const d = new Date();
   return (
-    <div className="section">
-      <div className="container-xl space-y-6">
-        <div className="space-y-2">
-          <p className="badge">Legal</p>
-          <h1 className="h1">Refund Policy</h1>
-          <p className="p text-white/70">Last updated: August 25, 2025</p>
-        </div>
-
-        <div className="card p-6 space-y-4">
-          <p className="p">This is a placeholder Refund Policy for Anexxa. Replace with your actual refund and dispute terms.</p>
-          <p className="p">Describe eligibility for refunds, timelines, how to request a refund, and exceptions.</p>
-          <p className="small text-white/60">Contact: support@anexxacard.com</p>
-        </div>
-      </div>
-    </div>
-  )
+    <main className="section container-xl prose prose-invert">
+      <h1>Refund Policy</h1>
+      <p><strong>Effective date:</strong> {d.toISOString().slice(0,10)}</p>
+      <h2>Digital gift cards</h2>
+      <ul>
+        <li>Refunds are not guaranteed once a code is delivered or redeemed.</li>
+        <li>If a code is defective or cannot be redeemed, contact us within 14 days for replacement or refund review.</li>
+      </ul>
+      <h2>Installment purchases</h2>
+      <ul>
+        <li>If your purchase is cancelled before code delivery, we will reverse the charge or refund amounts paid.</li>
+        <li>Once a code is delivered, refunds depend on the brand’s policy and redemption status.</li>
+      </ul>
+      <h2>How to request</h2>
+      <p>Contact <strong>support@anexxacard.com</strong> with your order ID and details. We reply within 3–5 business days.</p>
+    </main>
+  );
 }

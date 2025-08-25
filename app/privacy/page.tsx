@@ -1,21 +1,32 @@
-export const metadata = { title: 'Privacy Policy — Anexxa' }
+export const metadata = { title: "Privacy Policy — Anexxa" };
 
-export default function PrivacyPage() {
+export default function Page() {
+  const d = new Date();
   return (
-    <div className="section">
-      <div className="container-xl space-y-6">
-        <div className="space-y-2">
-          <p className="badge">Legal</p>
-          <h1 className="h1">Privacy Policy</h1>
-          <p className="p text-white/70">Last updated: August 25, 2025</p>
-        </div>
-
-        <div className="card p-6 space-y-4">
-          <p className="p">This is a placeholder Privacy Policy for Anexxa. Replace this content with your actual policy.</p>
-          <p className="p">We explain what data we collect, how we use it, and your choices regarding your data. Add contact details for privacy inquiries.</p>
-          <p className="small text-white/60">Contact: privacy@anexxacard.com</p>
-        </div>
-      </div>
-    </div>
-  )
+    <main className="section container-xl prose prose-invert">
+      <h1>Privacy Policy</h1>
+      <p><strong>Effective date:</strong> {d.toISOString().slice(0,10)}</p>
+      <p>We respect your privacy. This policy explains what personal data we collect, how we use it, and your rights.</p>
+      <h2>What we collect</h2>
+      <ul>
+        <li>Account details you provide (name, email, phone).</li>
+        <li>Order & payment info (processed by Stripe; card details never touch our servers).</li>
+        <li>Usage, device and cookie data to improve our services.</li>
+      </ul>
+      <h2>How we use data</h2>
+      <ul>
+        <li>To process purchases and deliver gift cards.</li>
+        <li>To provide installments, support, fraud prevention, and compliance.</li>
+        <li>To improve our products and communications.</li>
+      </ul>
+      <h2>Sharing</h2>
+      <p>We share data with service providers (e.g., Stripe for payments) under contract. We do not sell personal data.</p>
+      <h2>Your rights</h2>
+      <p>You may request access, correction, deletion, or restriction. Contact us at <strong>support@anexxacard.com</strong>.</p>
+      <h2>Security</h2>
+      <p>We use technical and organizational measures appropriate to the risk. No method is 100% secure.</p>
+      <h2>Contact</h2>
+      <p>Email: <strong>support@anexxacard.com</strong></p>
+    </main>
+  );
 }
