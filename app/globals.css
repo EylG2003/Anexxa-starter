@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Colors now driven by Tailwind classes/body gradient in layout */
+}
+
+html, body {
+  height: 100%;
+}
+
+.container-xl {
+  @apply max-w-7xl mx-auto px-6;
+}
+
+.card {
+  @apply rounded-2xl border border-white/10 bg-white/10 backdrop-blur-sm shadow-soft;
+}
+
+/* Optional glossy overlay for premium look */
+.card-gloss {
+  position: relative;
+}
+.card-gloss::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255,255,255,0.18), rgba(255,255,255,0.04) 40%, transparent 60%);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold transition-transform duration-150 ease-out;
+}
+.btn-primary {
+  /* Neon green primary */
+  background-color: #32ff8a;
+  color: #0b1220;
+  @apply shadow-soft hover:scale-105;
+}
+.btn-secondary {
+  @apply border border-white/70 text-white hover:bg-white hover:text-black rounded-xl;
+}
+
+.badge {
+  @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-medium border border-white/20 bg-white/10;
+}
+.kbd { @apply rounded-md border border-white/20 bg-white/10 px-2 py-1 text-xs; }
+
+.gradient {
+  background: radial-gradient(1200px 600px at 80% -10%, rgba(50,255,138,.25), transparent),
+              radial-gradient(900px 500px at 10% 0%, rgba(14,165,233,.25), transparent);
+}
+
+.section { @apply container-xl py-16 md:py-24; }
+
+/* Typography: Inter, lighter weights, tighter tracking */
+.h1 { @apply text-4xl md:text-6xl font-medium tracking-[-0.5px]; }
+.h2 { @apply text-3xl md:text-5xl font-medium tracking-[-0.5px]; }
+.h3 { @apply text-xl md:text-2xl font-medium tracking-[-0.3px]; }
+.p  { @apply text-base text-white/90; }
+.small { @apply text-sm text-white/70; }
+.link { @apply underline underline-offset-4 decoration-white/40 hover:decoration-white; }
