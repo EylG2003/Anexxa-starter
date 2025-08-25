@@ -6,7 +6,7 @@ import { giftCards } from '../../../data/giftcards'
 import { useMemo, useState } from 'react'
 
 export default function GiftCardProductPage() {
-  const params = useParams<{ slug: string }>(): { slug: string }
+  const params = useParams<{ slug: string }>()
   const searchParams = useSearchParams()
 
   const card = useMemo(() => giftCards.find(c => c.slug === params.slug), [params.slug])
