@@ -12,7 +12,7 @@ if (!secretKey) {
   throw new Error("Stripe secret key missing. Check .env *_TEST / *_LIVE variables.");
 }
 
-export const stripe = new Stripe(secretKey, { apiVersion: "2024-06-20" });
+export const stripe = new Stripe(secretKey, { apiVersion: "2023-10-16" });
 
 // Publishable key for client usage (if needed)
 export const getPublishableKey = () =>
