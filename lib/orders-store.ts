@@ -1,5 +1,7 @@
 import { giftCards, type GiftCard } from '../data/giftcards';
 
+export type StripeMeta = { subscriptionId: string; scheduleId?: string };
+
 export type Order = {
   id: string;
   slug: string;
@@ -9,8 +11,11 @@ export type Order = {
   createdAt: number;
   status: 'active'|'late'|'paid';
   cyclesPaid: number;
+  // legacy fields kept for compatibility
   subscriptionId?: string;
   scheduleId?: string;
+  // new nested Stripe meta
+  stripe?: StripeMeta;
 };
 
 class OrdersStoreClass {
@@ -74,8 +79,16 @@ class OrdersStoreClass {
   attachStripe(orderId: string, data: { subscriptionId?: string; scheduleId?: string }) {
     const o = this.getOrderById(orderId);
     if (!o) return;
+    // keep legacy flat fields for compatibility
     if (data.subscriptionId) o.subscriptionId = data.subscriptionId;
     if (data.scheduleId) o.scheduleId = data.scheduleId;
+    // set nested stripe meta as the new source of truth
+    if (data.subscriptionId || data.scheduleId) {
+      o.stripe = {
+        subscriptionId: data.subscriptionId || o.stripe?.subscriptionId || '',
+        scheduleId: data.scheduleId ?? o.stripe?.scheduleId,
+      };
+    }
   }
 
   markStatus(orderId: string, status: 'active'|'late'|'paid') {
@@ -95,7 +108,7 @@ class OrdersStoreClass {
   }
 
   findBySubscriptionId(subId: string): Order | undefined {
-    return this.orders.find(o => o.subscriptionId === subId);
+    return this.orders.find(o => o.stripe?.subscriptionId === subId || o.subscriptionId === subId);
   }
 
   get(orderId: string): Order | undefined {

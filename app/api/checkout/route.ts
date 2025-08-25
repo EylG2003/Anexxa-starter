@@ -1,15 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import Stripe from 'stripe'
-
-const stripeSecretKey = process.env.STRIPE_SECRET_KEY
-
-if (!stripeSecretKey) {
-  console.warn('[checkout] Missing STRIPE_SECRET_KEY env var')
-}
-
-const stripe = new Stripe(stripeSecretKey || '', {
-  apiVersion: '2023-10-16',
-})
+import { stripe, SITE_URL } from '@/lib/stripe'
 
 export async function POST(req: NextRequest) {
   try {
@@ -37,12 +27,8 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'invalid_request' }, { status: 400 })
     }
 
-    if (!stripeSecretKey) {
-      return NextResponse.json({ error: 'server_misconfigured' }, { status: 500 })
-    }
-
-    const successUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/success`
-    const cancelUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/cancel`
+    const successUrl = `${SITE_URL}/success`
+    const cancelUrl = `${SITE_URL}/cancel`
 
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',

@@ -29,4 +29,4 @@ export const getWebhookSecret = () =>
 // Site URL
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ||
-  (isProd ? "https://anexxacard.com" : "http://localhost:3000");
+  'http://localhost:3000';
