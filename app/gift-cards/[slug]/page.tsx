@@ -52,7 +52,7 @@ export default function GiftCardProductPage() {
       <div className="container-xl space-y-6">
         <div className="space-y-2">
           <p className="badge">Gift Card</p>
-          <h1 className="h1">{card.brand}</h1>
+          <h1 className="h1">{card.name}</h1>
           {error === 'out_of_stock' && (
             <div className="card p-3 bg-emerald-500/10 border border-emerald-400/30 text-emerald-100">
               Sorry — this card is out of stock right now.

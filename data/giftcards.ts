@@ -1,52 +1,52 @@
 export type GiftCard = {
-  slug: string
-  brand: string
-  image: string
-  denominations: number[]
-  codes: string[]        // masked or real codes as needed
-}
+  slug: string;
+  name: string;
+  logo: string;
+  denominations: number[];
+  codes?: string[];
+};
 
 export const giftCards: GiftCard[] = [
   {
     slug: "nike",
-    brand: "Nike",
-    image: "/giftcards/nike.png",
+    name: "Nike",
+    logo: "/giftcards/nike.png",
     denominations: [25, 50, 100, 200],
-    codes: ["NIKE-ABCD-1234", "NIKE-EFGH-5678"]
+    codes: ["NIKE-ABCD-1234", "NIKE-EFGH-5678"],
   },
   {
     slug: "hm",
-    brand: "H&M",
-    image: "/giftcards/hm.png",
+    name: "H&M",
+    logo: "/giftcards/hm.png",
     denominations: [25, 50, 100, 200],
-    codes: []
+    codes: [],
   },
   {
     slug: "mango",
-    brand: "Mango",
-    image: "/giftcards/mango.png",
+    name: "Mango",
+    logo: "/giftcards/mango.png",
     denominations: [25, 50, 100, 200],
-    codes: []
+    codes: [],
   },
   {
     slug: "sephora",
-    brand: "Sephora",
-    image: "/giftcards/sephora.png",
+    name: "Sephora",
+    logo: "/giftcards/sephora.png",
     denominations: [25, 50, 100, 200],
-    codes: []
+    codes: [],
   },
   {
     slug: "mediamarkt",
-    brand: "MediaMarkt",
-    image: "/giftcards/mediamarkt.png",
+    name: "MediaMarkt",
+    logo: "/giftcards/mediamarkt.png",
     denominations: [25, 50, 100, 200],
-    codes: []
+    codes: [],
   },
   {
     slug: "amazon",
-    brand: "Amazon",
-    image: "/giftcards/amazon.png",
+    name: "Amazon",
+    logo: "/giftcards/amazon.png",
     denominations: [25, 50, 100, 200],
-    codes: []
+    codes: [],
   },
-]
+];

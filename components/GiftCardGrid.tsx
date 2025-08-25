@@ -37,7 +37,7 @@ export default function GiftCardGrid() {
             <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-[#32ff8a]/30 blur-2xl" />
             <div className="rounded-2xl bg-white/5 border border-white/15 p-5 h-40 flex flex-col justify-between shadow-soft">
               <div className="flex items-center justify-between">
-                <span className="text-white/90 font-medium tracking-wide">{gc.brand}</span>
+                <span className="text-white/90 font-medium tracking-wide">{gc.name}</span>
                 <span className="text-white/60 text-sm">Gift Card</span>
               </div>
               <div>
