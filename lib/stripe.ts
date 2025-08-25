@@ -29,4 +29,4 @@ export const getWebhookSecret = () =>
 // Site URL
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ||
-  'https://anexxa-starter-3imrhzr8i-judgegpts-projects.vercel.app';
+  'https://anexxa-starter.vercel.app';
