@@ -43,7 +43,14 @@ export async function POST(req: NextRequest) {
           quantity: 1,
         },
       ],
-      payment_method_options: { card: { installments: { enabled: true } } },
+      payment_method_options: {
+        card: {
+          // Enforce 3D Secure for stronger authentication
+          request_three_d_secure: 'any',
+          // Keep card installments option visible (handled by card issuer availability)
+          installments: { enabled: true },
+        },
+      },
       success_url: successUrl,
       cancel_url: cancelUrl,
     })
