@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/pay",        "destination": "https://anexxa-qr-pay.vercel.app/" },
+    { "source": "/pay/",       "destination": "https://anexxa-qr-pay.vercel.app/" },
+    { "source": "/pay/(.*)",   "destination": "https://anexxa-qr-pay.vercel.app/$1" },
+    { "source": "/qr",         "destination": "/pay" }
+  ]
+}
