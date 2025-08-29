@@ -1,8 +1,8 @@
 {
   "rewrites": [
-    { "source": "/pay",        "destination": "https://anexxa-qr-pay.vercel.app/" },
-    { "source": "/pay/",       "destination": "https://anexxa-qr-pay.vercel.app/" },
-    { "source": "/pay/(.*)",   "destination": "https://anexxa-qr-pay.vercel.app/$1" },
-    { "source": "/qr",         "destination": "/pay" }
+    { "source": "/pay",               "destination": "https://anexxa-qr-pay.vercel.app" },
+    { "source": "/pay/(.*)",          "destination": "https://anexxa-qr-pay.vercel.app/$1" },
+    { "source": "/installments",      "destination": "https://anexxa-installments.vercel.app" },
+    { "source": "/installments/(.*)", "destination": "https://anexxa-installments.vercel.app/$1" }
   ]
 }
