@@ -3,8 +3,8 @@ export type Order = {
   id: string;
   amount: number;
   status: "created" | "paid" | "refunded" | "failed";
-  created: number;        // epoch ms
-  createdAt?: number;     // epoch ms (UI expects this)
+  created: number;        // epoch ms (legacy)
+  createdAt: number;      // epoch ms (UI expects this, REQUIRED)
   slug?: string;          // product slug
   plan?: string;          // "one-time", etc.
   code?: string;          // masked in UI
@@ -15,12 +15,23 @@ const _orders: Order[] = [];
 
 /** Named export expected by app/orders/page.tsx */
 export class OrdersStore {
-  /** Add (ensure createdAt is present) */
-  static add(o: Order) {
-    if (!o.createdAt) o.createdAt = o.created;
-    _orders.push(o);
+  /** Add (normalize timestamps so createdAt is ALWAYS present) */
+  static add(o: Omit<Order, "createdAt"> & Partial<Pick<Order,"createdAt">>) {
+    const createdAt = o.createdAt ?? o.created ?? Date.now();
+    const normalized: Order = {
+      id: o.id,
+      amount: o.amount,
+      status: o.status ?? "created",
+      created: o.created ?? createdAt,
+      createdAt,
+      slug: o.slug,
+      plan: o.plan,
+      code: o.code,
+      meta: o.meta ?? {}
+    };
+    _orders.push(normalized);
   }
-  static addOrder(o: Order) { this.add(o); }
+  static addOrder(o: any) { this.add(o); }
 
   /** List */
   static list(): Order[] { return _orders.slice().reverse(); }
@@ -42,7 +53,7 @@ export class OrdersStore {
 }
 
 /** Convenience named functions */
-export function addOrder(o: Order) { OrdersStore.addOrder(o); }
+export function addOrder(o: any) { OrdersStore.addOrder(o); }
 export function listOrders(): Order[] { return OrdersStore.listOrders(); }
 export function clearOrders() { OrdersStore.clearOrders(); }
 
