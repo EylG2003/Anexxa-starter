@@ -1,9 +1,9 @@
 export default function StatBar() {
   const stats = [
-    { label: "Integration time", value: "2–6 weeks" },
+    { label: "Average setup time", value: "Under 5 min" },
+    { label: "Transaction speed", value: "< 2 sec" },
     { label: "Uptime", value: "99.9%" },
-    { label: "Avg. approval lift", value: "+18%" },
-    { label: "Merchant NPS", value: "72" }
+    { label: "Customer satisfaction", value: "4.8/5" }
   ];
   return (
     <section className="section">

@@ -4,8 +4,8 @@ import Footer from '@/components/Footer'
 import { Inter } from 'next/font/google'
 
 export const metadata = {
-  title: 'Anexxa — POS & BNPL',
-  description: 'Payments that include everyone — POS for banks, BNPL for shoppers.',
+  title: 'Anexxa POS — Tap to Pay & Terminals',
+  description: 'Point-of-sale software. Accept in-person card payments with Tap to Pay and lightweight terminals. Powered by Stripe.',
 }
 
 const inter = Inter({ subsets: ['latin'], weight: ['300','400','500','600','700'] })

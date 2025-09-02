@@ -23,18 +23,18 @@ export default function Navbar() {
           <div className="size-9 grid place-items-center rounded-xl bg-white/10 border border-white/20">
             <span className="text-xl">⚖️</span>
           </div>
-          <span className="font-semibold tracking-wide">Anexxa</span>
+          <span className="font-semibold tracking-wide">Anexxa POS</span>
         </Link>
         <nav className="hidden md:flex items-center gap-2">
           {link('/', 'Home')}
-          {link('/pos', 'POS for Banks')}
-          {link('/bnpl', 'BNPL for Shoppers')}
-          {link('/gift-cards', 'Gift Cards & Rewards')}
-          {link('/partners', 'Partner Portal')}
+          {link('/pos', 'POS System')}
+          {link('/pricing', 'Pricing')}
+          {link('/partners', 'Partners')}
+          {link('/contact', 'Contact')}
         </nav>
         <div className="flex items-center gap-2">
-          <Link href="/partners" className="btn btn-secondary">Talk to Sales</Link>
-          <Link href="/bnpl#waitlist" className="btn btn-primary">Get the App</Link>
+          <Link href="/contact" className="btn btn-secondary">Contact Sales</Link>
+          <Link href="/pos" className="btn btn-primary">Get Started</Link>
         </div>
       </div>
     </header>

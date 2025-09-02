@@ -1,11 +1,11 @@
 export default function FeatureGrid() {
   const features = [
-    { title: "Installments Everywhere", desc: "Offer BNPL at POS, online checkout, and QR — with a single integration." },
-    { title: "Tap to Pay", desc: "Turn phones into terminals on Android/iOS. No extra hardware needed." },
-    { title: "Fraud & Risk Controls", desc: "Built-in rules engine and KYB/KYC integrations (roadmap)." },
-    { title: "Developer-First", desc: "Simple SDKs, webhooks, and a sandbox that unblocks your team fast." },
-    { title: "Rewards Engine", desc: "Attach loyalty and offers to every transaction. Drive repeat purchases." },
-    { title: "White-Label Ready", desc: "Brand the entire experience for your bank or merchant network." }
+    { title: "Tap to Pay", desc: "Accept contactless payments on iPhone and Android devices with just a tap." },
+    { title: "Android POS App", desc: "Full-featured POS app for Android devices and compatible card readers." },
+    { title: "Instant Setup", desc: "Get started in minutes with Stripe integration and instant onboarding." },
+    { title: "No Extra Hardware", desc: "Use existing devices or choose from our recommended card readers." },
+    { title: "Real-time Reporting", desc: "Track sales, inventory, and customer data in real-time." },
+    { title: "Secure Payments", desc: "End-to-end encryption and PCI compliance built-in." }
   ];
   return (
     <section className="section">

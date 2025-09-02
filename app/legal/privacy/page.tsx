@@ -1,4 +1,4 @@
-export const metadata = { title: "Privacy Policy — Anexxa" };
+export const metadata = { title: "Privacy Policy — Anexxa POS" };
 
 export default function Page() {
   const today = new Date().toISOString().slice(0, 10);
@@ -10,57 +10,56 @@ export default function Page() {
       </p>
 
       <p>
-        At Anexxa, your privacy and security are paramount. This policy explains how we collect,
-        use, and protect your data when you purchase prepaid vouchers through our platform.
+        At Anexxa POS, we are committed to protecting your privacy. This policy explains how we collect,
+        use, and protect your data when you use our point-of-sale services.
       </p>
 
       <h2>1. Data We Collect</h2>
       <ul>
-        <li>Personal information (name, email, billing details).</li>
-        <li>
-          Payment details (processed securely by Stripe; Anexxa never stores card numbers).
-        </li>
-        <li>Device, IP, and cookies for fraud prevention.</li>
+        <li>Business information (business name, contact details, tax ID).</li>
+        <li>Payment processing details (handled securely by Stripe).</li>
+        <li>Transaction data (purchase amounts, timestamps, payment methods).</li>
+        <li>Device and usage data for service optimization.</li>
       </ul>
 
       <h2>2. How We Use Your Data</h2>
       <ul>
-        <li>To process prepaid voucher orders.</li>
-        <li>To deliver vouchers once installments are fully paid.</li>
-        <li>To comply with AML, fraud prevention, and legal obligations.</li>
-        <li>To provide support and improve services.</li>
+        <li>To process and record transactions.</li>
+        <li>To provide and improve our POS services.</li>
+        <li>For customer support and account management.</li>
+        <li>To comply with legal and regulatory requirements.</li>
       </ul>
 
       <h2>3. Payments</h2>
       <p>
-        All payments are processed by <strong>Stripe Payments UK/Europe</strong>. Anexxa does
-        <strong> not</strong> issue credit, loans, or BNPL products. Installment payments are handled
-        as <strong>subscriptions</strong>, not financing.
+        All payments are processed by <strong>Stripe</strong>. Anexxa POS does not store or process
+        card data directly. We use secure payment processing to ensure your transactions are protected.
       </p>
 
-      <h2>4. AML &amp; Security</h2>
+      <h2>4. Security Measures</h2>
       <ul>
-        <li>3D Secure authentication applied to all payments.</li>
-        <li>Transactions over €250 may require ID verification.</li>
-        <li>Suspicious transactions are flagged and may be reported to regulators.</li>
+        <li>End-to-end encryption for all transactions.</li>
+        <li>PCI DSS compliant payment processing.</li>
+        <li>Regular security audits and monitoring.</li>
       </ul>
 
       <h2>5. Data Sharing</h2>
       <ul>
         <li>Stripe (for secure payment processing).</li>
-        <li>Trusted providers (hosting, analytics, email).</li>
-        <li>Regulators if legally required.</li>
+        <li>Trusted service providers (hosting, analytics, support).</li>
+        <li>When required by law or to protect our rights.</li>
       </ul>
 
       <h2>6. Your Rights</h2>
       <p>
-        You may request access, correction, or deletion of your data, and withdraw consent for
-        marketing.
+        You may request access to, correction of, or deletion of your personal data. You can also
+        object to or restrict certain data processing activities.
       </p>
 
-      <h2>7. Contact</h2>
+      <h2>7. Contact Us</h2>
       <p>
-        Email: <a href="mailto:support@anexxa.com">support@anexxa.com</a>
+        For privacy-related inquiries, please contact us at{' '}
+        <a href="mailto:privacy@anexxapos.com">privacy@anexxapos.com</a>
       </p>
     </main>
   );
