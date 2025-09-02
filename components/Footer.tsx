@@ -1,45 +1,43 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 mt-20">
-      <div className="container-xl py-10 grid gap-8 md:grid-cols-4 text-white/80">
+    <footer className="bg-gray-900 text-gray-300 py-10 mt-16">
+      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        {/* Column 1: Brand */}
         <div>
-          <div className="flex items-center gap-3 mb-3">
-            <div className="size-9 grid place-items-center rounded-xl bg-white/10 border border-white/20">
-              <span className="text-xl">⚖️</span>
-            </div>
-            <span className="font-semibold tracking-wide">Anexxa</span>
-          </div>
-          <p className="text-sm text-white/60">Payments that include everyone — POS for banks and BNPL for shoppers.</p>
+          <h3 className="text-white text-lg font-semibold mb-3">Anexxa</h3>
+          <p className="text-sm">
+            Turn any device into a secure, modern point-of-sale. 
+            Fast checkout, simple integrations, and merchant-first design.
+          </p>
         </div>
+
+        {/* Column 2: Navigation */}
         <div>
-          <p className="font-semibold mb-3">Products</p>
-          <ul className="space-y-2 text-sm">
-            <li><Link href="/pos" className="hover:underline">Anexxa POS</Link></li>
-            <li><Link href="/bnpl" className="hover:underline">Anexxa BNPL</Link></li>
-            <li><Link href="/partners" className="hover:underline">Partner Portal</Link></li>
+          <h3 className="text-white text-lg font-semibold mb-3">Navigation</h3>
+          <ul className="space-y-2">
+            <li><Link href="/" className="hover:underline">Home</Link></li>
+            <li><Link href="/pos" className="hover:underline">POS</Link></li>
+            <li><Link href="/pricing" className="hover:underline">Pricing</Link></li>
+            <li><Link href="/partners" className="hover:underline">Partners</Link></li>
+            <li><Link href="/contact" className="hover:underline">Contact</Link></li>
           </ul>
         </div>
+
+        {/* Column 3: Legal */}
         <div>
-          <p className="font-semibold mb-3">Company</p>
-          <ul className="space-y-2 text-sm">
-            <li><a className="hover:underline" href="#">About</a></li>
-            <li><a className="hover:underline" href="#">Careers</a></li>
-            <li><a className="hover:underline" href="#">Press</a></li>
-          </ul>
-        </div>
-        <div>
-          <p className="font-semibold mb-3">Legal</p>
-          <ul className="space-y-2 text-sm">
-            <li><Link className="hover:underline" href="/terms">Terms</Link></li>
-            <li><Link className="hover:underline" href="/privacy">Privacy</Link></li>
-            <li><Link className="hover:underline" href="/refunds">Refunds</Link></li>
+          <h3 className="text-white text-lg font-semibold mb-3">Legal</h3>
+          <ul className="space-y-2">
+            <li><Link href="/legal/terms" className="hover:underline">Terms of Service</Link></li>
+            <li><Link href="/legal/privacy" className="hover:underline">Privacy Policy</Link></li>
           </ul>
         </div>
       </div>
-      <div className="container-xl py-6 text-xs text-white/50 border-t border-white/10">
-        &copy; {new Date().getFullYear()} Anexxa. All rights reserved.
+
+      <div className="border-t border-gray-700 mt-10 pt-6 text-center text-sm text-gray-500">
+        © {new Date().getFullYear()} Anexxa POS Ltd. All rights reserved.
       </div>
     </footer>
   );

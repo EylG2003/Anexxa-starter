@@ -1,67 +1,58 @@
-import type { Metadata } from "next";
+import React from "react";
 
-export const metadata: Metadata = {
-  title: "Terms of Service — Anexxa POS",
-  robots: { index: true, follow: true },
-};
+export default function Terms() {
+  const today = new Date().toISOString().slice(0, 10);
 
-export default function TermsPage() {
   return (
-    <main style={{maxWidth:860, margin:"40px auto", padding:"0 20px", lineHeight:1.6}}>
+    <main className="max-w-3xl mx-auto px-6 py-12 prose">
       <h1>Terms of Service</h1>
-      <p><strong>Effective Date:</strong> {new Date().toISOString().slice(0,10)}</p>
-
-      <h2>1. Service Description</h2>
       <p>
-        Anexxa provides <strong>point‑of‑sale (POS) software</strong> that enables merchants to accept
-        in‑person card payments, including Tap to Pay and certified terminals. Anexxa is a software provider; it is not a bank, lender, or money transmitter.
+        <strong>Last updated:</strong> {today}
       </p>
 
-      <h2>2. No Financial Products</h2>
+      <h2>About Anexxa</h2>
       <p>
-        Anexxa <strong>does not</strong> offer lending, credit issuance, stored value, gift cards, vouchers, or BNPL/"pay later" products. All payments are processed by third‑party payment processors.
+        Anexxa provides point-of-sale (POS) software and related merchant tools. We enable
+        merchants to accept card payments via approved third-party payment processors and to
+        manage checkout, receipts, analytics, and loyalty features.
       </p>
 
-      <h2>3. Payments & Processing</h2>
+      <h2>No Financial Products</h2>
+      <p>
+        Anexxa does <em>not</em> issue or manage stored value, open-loop gift cards, prepaid cards,
+        lending, credit, or buy-now-pay-later products. We do not hold customer funds.
+      </p>
+
+      <h2>Payment Processing</h2>
+      <p>
+        Payments are processed by third-party, licensed acquirers (for example, Stripe and other
+        partners). Settlement of funds occurs directly from the processor to the merchant in
+        accordance with the processor&apos;s terms. Anexxa is not a money transmitter or payment
+        institution.
+      </p>
+
+      <h2>Merchant Responsibilities</h2>
       <ul>
-        <li>Payments are processed by <strong>Stripe</strong>. Card data is handled by Stripe; Anexxa does not store card numbers.</li>
-        <li>Funds settle directly to the merchant’s connected Stripe account. Anexxa does not hold or control customer funds.</li>
-        <li>Strong Customer Authentication (e.g., 3D Secure) may be required per scheme/regulatory rules.</li>
+        <li>Operate in compliance with applicable card network and processor rules.</li>
+        <li>Provide accurate product and pricing information and fulfill orders.</li>
+        <li>Maintain lawful use of the Services and applicable PCI obligations.</li>
       </ul>
 
-      <h2>4. Merchant Responsibilities</h2>
-      <ul>
-        <li>Comply with applicable card network rules and local laws.</li>
-        <li>Provide accurate business information and maintain account security.</li>
-        <li>Handle customer support and refunds in accordance with your policies and law.</li>
-      </ul>
-
-      <h2>5. Refunds</h2>
+      <h2>Prohibited Use</h2>
       <p>
-        Refunds are initiated by the merchant through their payment processor (e.g., Stripe). Anexxa provides tools and integrations but does not issue refunds directly.
+        Use of Anexxa for financial services (credit, BNPL, stored value, cash equivalents,
+        or open-loop gift cards) is prohibited. Anexxa may suspend or terminate access for breach.
       </p>
 
-      <h2>6. Security</h2>
-      <ul>
-        <li>Payment processing is PCI DSS compliant via Stripe.</li>
-        <li>Anexxa implements industry‑standard security controls to protect service availability.</li>
-      </ul>
-
-      <h2>7. Limitation of Liability</h2>
+      <h2>Changes</h2>
       <p>
-        To the maximum extent permitted by law, Anexxa is not liable for indirect, incidental, or consequential damages, or for losses arising from third‑party services.
+        We may update these Terms from time to time. Continued use of the Services after changes
+        take effect constitutes acceptance.
       </p>
 
-      <h2>8. Changes</h2>
-      <p>
-        We may update these Terms from time to time. Continued use of the services constitutes acceptance of the updated Terms.
-      </p>
-
-      <h2>9. Governing Law</h2>
-      <p>These Terms are governed by the laws applicable in the company’s place of establishment, without regard to conflict‑of‑law principles.</p>
-
-      <h2>10. Contact</h2>
-      <p>Email: <a href="mailto:support@anexxa.com">support@anexxa.com</a></p>
+      <h2>Contact</h2>
+      <p>For questions about these Terms, contact: partners@anexxacard.com</p>
     </main>
   );
 }
+

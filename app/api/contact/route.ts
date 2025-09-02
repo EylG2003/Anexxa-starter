@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
   // TODO: integrate SendGrid or Resend.
   console.log('[contact] new waitlist', { name, email });
 
-  const url = new URL('/bnpl', req.url);
+  const url = new URL('/pos', req.url);
   url.searchParams.set('ok', '1');
   return NextResponse.redirect(url, 303);
 }

@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://anexxacard.com/</loc></url>
-  <url><loc>https://anexxacard.com/pos</loc></url>
-  <url><loc>https://anexxacard.com/bnpl</loc></url>
-  <url><loc>https://anexxacard.com/partners</loc></url>
+  <url><loc>https://www.anexxacard.com/</loc></url>
+  <url><loc>https://www.anexxacard.com/pos</loc></url>
+  <url><loc>https://www.anexxacard.com/pricing</loc></url>
+  <url><loc>https://www.anexxacard.com/partners</loc></url>
+  <url><loc>https://www.anexxacard.com/contact</loc></url>
+  <url><loc>https://www.anexxacard.com/legal/terms</loc></url>
+  <url><loc>https://www.anexxacard.com/legal/privacy</loc></url>
+  <!-- optional static utility pages if they exist -->
+  <url><loc>https://www.anexxacard.com/cancel</loc></url>
+  <url><loc>https://www.anexxacard.com/success</loc></url>
 </urlset>

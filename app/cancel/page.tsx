@@ -9,7 +9,7 @@ export default function CancelPage() {
         <h1 className="h1">❌ Payment cancelled</h1>
         <p className="p">No charges were made.</p>
         <div>
-          <Link href="/gift-cards" className="btn btn-primary">Try again</Link>
+          <Link href="/pos" className="btn btn-primary">Back to POS</Link>
         </div>
       </div>
     </div>
