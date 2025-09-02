@@ -4,7 +4,12 @@ export type Order = {
   amount: number;
   status: "created" | "paid" | "refunded" | "failed";
   created: number;
-  code?: string; // optional code shown masked in UI
+
+  // fields referenced by the UI
+  slug?: string;  // e.g., product slug
+  plan?: string;  // e.g., "one-time", "monthly 3x"
+  code?: string;  // masked in UI
+
   meta?: Record<string, unknown>;
 };
 
@@ -31,7 +36,6 @@ export class OrdersStore {
     if (clean.length <= 4) return clean;
     const last4 = clean.slice(-4);
     const masked = "*".repeat(Math.max(0, clean.length - 4)) + last4;
-    // if code had dashes, reinsert a dash before the last 4 for readability
     return /-/.test(code) ? masked.slice(0, -4) + "-" + last4 : masked;
   }
 }
