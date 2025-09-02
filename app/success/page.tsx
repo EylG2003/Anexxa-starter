@@ -1,17 +1,15 @@
-import Link from 'next/link'
+import Link from "next/link";
 
-export const metadata = { title: 'Payment successful — Anexxa' }
-
-export default function SuccessPage() {
+export default function Success() {
   return (
-    <div className="section">
-      <div className="container-sm text-center space-y-6">
-        <h1 className="h1">✅ Payment successful</h1>
-        <p className="p">Your gift card code will be sent by email shortly.</p>
-        <div>
-          <Link href="/gift-cards" className="btn btn-primary">Back to Gift Cards</Link>
-        </div>
-      </div>
-    </div>
-  )
+    <main className="max-w-2xl mx-auto px-6 py-16 text-center">
+      <h1 className="text-3xl font-bold mb-4">Payment Successful</h1>
+      <p className="text-gray-600 mb-8">
+        Thanks! Your transaction was completed. You can return to the POS page to continue.
+      </p>
+      <Link href="/pos" className="btn btn-primary">
+        Back to POS
+      </Link>
+    </main>
+  );
 }
