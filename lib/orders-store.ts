@@ -3,13 +3,11 @@ export type Order = {
   id: string;
   amount: number;
   status: "created" | "paid" | "refunded" | "failed";
-  created: number;
-
-  // fields referenced by the UI
-  slug?: string;  // e.g., product slug
-  plan?: string;  // e.g., "one-time", "monthly 3x"
-  code?: string;  // masked in UI
-
+  created: number;        // epoch ms
+  createdAt?: number;     // epoch ms (UI expects this)
+  slug?: string;          // product slug
+  plan?: string;          // "one-time", etc.
+  code?: string;          // masked in UI
   meta?: Record<string, unknown>;
 };
 
@@ -17,8 +15,11 @@ const _orders: Order[] = [];
 
 /** Named export expected by app/orders/page.tsx */
 export class OrdersStore {
-  /** Add */
-  static add(o: Order) { _orders.push(o); }
+  /** Add (ensure createdAt is present) */
+  static add(o: Order) {
+    if (!o.createdAt) o.createdAt = o.created;
+    _orders.push(o);
+  }
   static addOrder(o: Order) { this.add(o); }
 
   /** List */
