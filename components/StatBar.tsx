@@ -1,4 +1,4 @@
-export default function StatBar() {
+﻿export default function StatBar() {
   const stats = [
     { label: "Average setup time", value: "Under 5 min" },
     { label: "Transaction speed", value: "< 2 sec" },
@@ -18,3 +18,4 @@ export default function StatBar() {
     </section>
   );
 }
+

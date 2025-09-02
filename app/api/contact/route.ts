@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+﻿import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
   const contentType = req.headers.get('content-type') || '';
@@ -21,3 +21,4 @@ export async function POST(req: NextRequest) {
   url.searchParams.set('ok', '1');
   return NextResponse.redirect(url, 303);
 }
+

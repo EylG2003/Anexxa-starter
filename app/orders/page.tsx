@@ -1,6 +1,6 @@
-import { OrdersStore } from '@/lib/orders-store'
+﻿import { OrdersStore } from '@/lib/orders-store'
 
-export const metadata = { title: 'Orders — Dev Only' }
+export const metadata = { title: 'Orders â€” Dev Only' }
 
 export default function OrdersDevPage() {
   const orders = OrdersStore.listOrders()
@@ -32,7 +32,7 @@ export default function OrdersDevPage() {
                   <tr key={o.id} className="border-t border-white/10">
                     <td className="py-2 pr-4 font-mono">{o.id}</td>
                     <td className="py-2 pr-4">{o.slug}</td>
-                    <td className="py-2 pr-4">€{o.amount.toFixed(2)}</td>
+                    <td className="py-2 pr-4">â‚¬{o.amount.toFixed(2)}</td>
                     <td className="py-2 pr-4">{o.plan}</td>
                     <td className="py-2 pr-4 font-mono">{masked}</td>
                     <td className="py-2 pr-4">{new Date(o.createdAt).toLocaleString()}</td>
@@ -51,3 +51,4 @@ export default function OrdersDevPage() {
     </div>
   )
 }
+

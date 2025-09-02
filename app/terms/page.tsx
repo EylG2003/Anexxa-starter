@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 
 export default function TermsLegacy() {
   return (
@@ -8,4 +8,5 @@ export default function TermsLegacy() {
     </main>
   );
 }
+
 

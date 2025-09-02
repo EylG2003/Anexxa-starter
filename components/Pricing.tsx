@@ -1,4 +1,4 @@
-export default function Pricing() {
+﻿export default function Pricing() {
   const tiers = [
     { name: "Starter", price: "Free", points: ["Sandbox access", "Docs & SDKs", "Email support"] },
     { name: "Growth", price: "Custom", points: ["Volume pricing", "White-label", "Dedicated manager"] },
@@ -13,7 +13,7 @@ export default function Pricing() {
             <p className="h3">{t.name}</p>
             <p className="text-4xl font-bold mt-2">{t.price}</p>
             <ul className="mt-4 space-y-2">
-              {t.points.map(p => <li key={p} className="p">• {p}</li>)}
+              {t.points.map(p => <li key={p} className="p">â€¢ {p}</li>)}
             </ul>
             <button className="btn btn-primary w-full mt-6">Choose</button>
           </div>
@@ -22,3 +22,4 @@ export default function Pricing() {
     </section>
   );
 }
+

@@ -4,3 +4,4 @@
 export async function GET() {
   return Response.json({ ok: true, message: "Use POST for checkout." });
 }
+

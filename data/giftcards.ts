@@ -1,4 +1,4 @@
-export type GiftCard = {
+﻿export type GiftCard = {
   slug: string;
   name: string;
   logo: string;
@@ -50,3 +50,4 @@ export const giftCards: GiftCard[] = [
     codes: [],
   },
 ];
+

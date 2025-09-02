@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState } from 'react'
 
@@ -18,3 +18,4 @@ export default function RevealCode({ masked, full }: { masked: string; full: str
     </div>
   )
 }
+

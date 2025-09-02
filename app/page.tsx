@@ -1,4 +1,4 @@
-import Hero from '@/components/Hero'
+﻿import Hero from '@/components/Hero'
 import FeatureGrid from '@/components/FeatureGrid'
 import StatBar from '@/components/StatBar'
 import Logos from '@/components/Logos'
@@ -17,3 +17,4 @@ export default function Page() {
     </>
   )
 }
+

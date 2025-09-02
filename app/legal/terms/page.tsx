@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 
 export default function Terms() {
   const today = new Date().toISOString().slice(0, 10);
@@ -55,4 +55,5 @@ export default function Terms() {
     </main>
   );
 }
+
 

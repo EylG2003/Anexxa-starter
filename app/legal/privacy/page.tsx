@@ -1,4 +1,4 @@
-export const metadata = { title: "Privacy Policy — Anexxa POS" };
+﻿export const metadata = { title: "Privacy Policy â€” Anexxa POS" };
 
 export default function Page() {
   const today = new Date().toISOString().slice(0, 10);
@@ -64,3 +64,4 @@ export default function Page() {
     </main>
   );
 }
+

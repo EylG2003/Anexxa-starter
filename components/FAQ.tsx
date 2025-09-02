@@ -1,4 +1,4 @@
-export default function FAQ() {
+﻿export default function FAQ() {
   const qas = [
     { 
       q: "What devices are supported for Tap to Pay?", 
@@ -31,3 +31,4 @@ export default function FAQ() {
     </section>
   );
 }
+

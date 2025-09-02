@@ -1,0 +1,226 @@
+﻿import Link from 'next/link'
+
+export const metadata = { title: 'Payment cancelled â€” Anexxa' }
+
+export default function CancelPage() {
+  return (
+    <div className="section">
+      <div className="container-sm text-center space-y-6">
+        <h1 className="h1">âŒ Payment cancelled</h1>
+        <p className="p">No charges were made.</p>
+        <div>
+          <Link href="/pos" className="btn btn-primary">Back to POS</Link>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+import { OrdersStore } from '@/lib/orders-store'
+
+export const metadata = { title: 'Orders â€” Dev Only' }
+
+export default function OrdersDevPage() {
+  const orders = OrdersStore.listOrders()
+  return (
+    <div className="section">
+      <div className="container-xl space-y-4">
+        <div className="space-y-1">
+          <p className="badge">Internal</p>
+          <h1 className="h1">Orders (dev)</h1>
+          <p className="p text-white/70">This page lists in-memory orders for testing. Not visible in navigation.</p>
+        </div>
+
+        <div className="card p-4 overflow-auto">
+          <table className="w-full text-left small">
+            <thead className="text-white/70">
+              <tr>
+                <th className="py-2 pr-4">ID</th>
+                <th className="py-2 pr-4">Brand</th>
+                <th className="py-2 pr-4">Amount</th>
+                <th className="py-2 pr-4">Plan</th>
+                <th className="py-2 pr-4">Code (masked)</th>
+                <th className="py-2 pr-4">Created</th>
+              </tr>
+            </thead>
+            <tbody>
+              {orders.map(o => {
+                const masked = OrdersStore.maskCode(o.code)
+                return (
+                  <tr key={o.id} className="border-t border-white/10">
+                    <td className="py-2 pr-4 font-mono">{o.id}</td>
+                    <td className="py-2 pr-4">{o.slug}</td>
+                    <td className="py-2 pr-4">â‚¬{o.amount.toFixed(2)}</td>
+                    <td className="py-2 pr-4">{o.plan}</td>
+                    <td className="py-2 pr-4 font-mono">{masked}</td>
+                    <td className="py-2 pr-4">{new Date(o.createdAt).toLocaleString()}</td>
+                  </tr>
+                )
+              })}
+              {orders.length === 0 && (
+                <tr>
+                  <td colSpan={6} className="py-4 text-white/60">No orders yet.</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export const metadata = { title: 'Partners â€” Merchants' }
+
+export default function PartnersPage() {
+  return (
+    <div className="section">
+      <div className="container-xl space-y-8">
+        <div className="text-center space-y-3">
+          <p className="badge">Partner Portal</p>
+          <h1 className="h1">Start your Anexxa POS integration.</h1>
+          <p className="p max-w-2xl mx-auto">Tell us about your business. Weâ€™ll set up a sandbox and share SDKs, sample apps, and webhooks.</p>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          <div className="card p-8">
+            <p className="h3">Company details</p>
+            <form className="mt-4 grid gap-3" action="/api/partner-lead" method="post">
+              <input required name="company" placeholder="Company name" className="card p-3" />
+              <input required name="email" type="email" placeholder="Work email" className="card p-3" />
+              <input name="website" placeholder="Website (optional)" className="card p-3" />
+              <select name="interest" className="card p-3">
+                <option value="pos">Anexxa POS</option>
+              </select>
+              <textarea name="notes" placeholder="Volumes, countries, acquirer (optional)" className="card p-3" />
+              <button className="btn btn-primary w-full">Request sandbox</button>
+            </form>
+            <p className="small mt-3">Your data is kept confidential.</p>
+          </div>
+
+          <div className="card p-8">
+            <p className="h3">Why partners choose Anexxa</p>
+            <ul className="mt-3 space-y-2 p">
+              <li>â€¢ Hardware-light Tap to Pay rollout</li>
+              <li>â€¢ Real-time reporting and payouts</li>
+              <li>â€¢ Simple SDKs, fast goâ€‘live</li>
+              <li>â€¢ Works with popular Android terminals</li>
+              <li>â€¢ Secure, PCI-compliant processing via Stripe</li>
+            </ul>
+            <div className="mt-6">
+              <div className="badge">SLA</div> <span className="small">99.9% uptime</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+import React from "react";
+import Link from "next/link";
+import ComplianceNote from "@/components/ComplianceNote";
+
+export default function POSPage() {
+  return (
+    <main className="max-w-5xl mx-auto px-6 py-12">
+      <h1 className="text-3xl font-bold mb-3">Anexxa POS</h1>
+      <p className="text-white/80 mb-4">
+        A fast, device-agnostic point-of-sale system for merchants. Anexxa connects to
+        licensed payment processors (e.g., Stripe; Adyen; Mollie) so you can take
+        contactless card payments with Tap to Pay or lightweight terminals. Anexxa does
+        not issue financial products.
+      </p>
+      <ComplianceNote />
+      <div className="mt-8 grid gap-4 md:grid-cols-2">
+        <div className="rounded-xl p-4 bg-white/10">
+          <h2 className="font-semibold mb-2">Tap to Pay</h2>
+          <p className="text-sm text-white/80">
+            Use compatible iPhones and Android devices to accept contactless cards and wallets.
+            Availability varies by device, OS, processor, and region.
+          </p>
+          <Link href="/contact" className="btn btn-primary mt-3 inline-block">Enable Tap to Pay</Link>
+        </div>
+        <div className="rounded-xl p-4 bg-white/10">
+          <h2 className="font-semibold mb-2">Terminals</h2>
+          <p className="text-sm text-white/80">
+            Works with popular Android POS hardware (PAX, Sunmi) via supported processors.
+          </p>
+          <Link href="/contact" className="btn btn-secondary mt-3 inline-block">Supported devices</Link>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+import React from "react";
+
+export default function Privacy() {
+  return (
+    <main className="max-w-3xl mx-auto px-6 py-12 prose">
+      <h1>Privacy Policy</h1>
+      <p>
+        <strong>Summary:</strong> Anexxa provides POS software only. We do not issue stored value,
+        gift cards, lending, or BNPL products. Payments are processed by licensed acquirers
+        (for example, Stripe) who act as the data controller for payment data they process.
+        We act as a processor for merchant POS data.
+      </p>
+      <p>
+        For full details, see our <a href="/legal/privacy">Privacy</a> and{" "}
+        <a href="/legal/terms">Terms</a>.
+      </p>
+    </main>
+  );
+}
+
+export const metadata = { title: "Refund Policy â€” Anexxa" };
+export default function RefundsPage() {
+  const d = new Date();
+  return (
+    <main className="section container-xl prose prose-invert">
+      <h1>Refund Policy</h1>
+      <p><strong>Effective date:</strong> {d.toISOString().slice(0,10)}</p>
+      <h2>Digital gift cards</h2>
+      <ul>
+        <li>Refunds are not guaranteed once a code is delivered or redeemed.</li>
+        <li>If a code is defective or cannot be redeemed, contact us within 14 days for replacement or refund review.</li>
+      </ul>
+      <h2>Installment purchases</h2>
+      <ul>
+        <li>If your purchase is cancelled before code delivery, we will reverse the charge or refund amounts paid.</li>
+        <li>Once a code is delivered, refunds depend on the brandâ€™s policy and redemption status.</li>
+      </ul>
+      <h2>How to request</h2>
+      <p>Contact <strong>support@anexxacard.com</strong> with your order ID and details. We reply within 3â€“5 business days.</p>
+    </main>
+  );
+}
+
+import Link from "next/link";
+
+export default function Success() {
+  return (
+    <main className="max-w-2xl mx-auto px-6 py-16 text-center">
+      <h1 className="text-3xl font-bold mb-4">Payment Successful</h1>
+      <p className="text-gray-600 mb-8">
+        Thanks! Your transaction was completed. You can return to the POS page to continue.
+      </p>
+      <Link href="/pos" className="btn btn-primary">
+        Back to POS
+      </Link>
+    </main>
+  );
+}
+
+import React from "react";
+
+export default function TermsLegacy() {
+  return (
+    <main className="max-w-3xl mx-auto px-6 py-12 prose">
+      <h1>Terms</h1>
+      <p>For our current Terms, see <a href="/legal/terms">Legal Terms</a>. Anexxa provides POS software for merchants. We do not issue stored value, gift cards, BNPL, or lending products. Payments are processed by licensed acquirers with settlement directly to merchants.</p>
+    </main>
+  );
+}
+
+

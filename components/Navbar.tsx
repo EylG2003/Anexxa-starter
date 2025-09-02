@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cx } from '@/lib/utils';
@@ -21,7 +21,7 @@ export default function Navbar() {
       <div className="container-xl flex items-center justify-between h-16">
         <Link href="/" className="flex items-center gap-3">
           <div className="size-9 grid place-items-center rounded-xl bg-white/10 border border-white/20">
-            <span className="text-xl">⚖️</span>
+            <span className="text-xl">âš–ï¸</span>
           </div>
           <span className="font-semibold tracking-wide">Anexxa POS</span>
         </Link>
@@ -40,3 +40,4 @@ export default function Navbar() {
     </header>
   );
 }
+

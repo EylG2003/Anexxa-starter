@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -37,8 +37,9 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-gray-700 mt-10 pt-6 text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} Anexxa POS Ltd. All rights reserved.
+        Â© {new Date().getFullYear()} Anexxa POS Ltd. All rights reserved.
       </div>
     </footer>
   );
 }
+

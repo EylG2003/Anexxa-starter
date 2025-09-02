@@ -1,10 +1,10 @@
-import './globals.css'
+﻿import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { Inter } from 'next/font/google'
 
 export const metadata = {
-  title: 'Anexxa POS — Tap to Pay & Terminals',
+  title: 'Anexxa POS â€” Tap to Pay & Terminals',
   description: 'Point-of-sale software. Accept in-person card payments with Tap to Pay and lightweight terminals. Powered by Stripe.',
 }
 
@@ -21,3 +21,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   )
 }
+

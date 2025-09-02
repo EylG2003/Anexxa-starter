@@ -1,4 +1,4 @@
-export default function FeatureGrid() {
+﻿export default function FeatureGrid() {
   const features = [
     { title: "Tap to Pay", desc: "Accept contactless payments on iPhone and Android devices with just a tap." },
     { title: "Android POS App", desc: "Full-featured POS app for Android devices and compatible card readers." },
@@ -20,3 +20,4 @@ export default function FeatureGrid() {
     </section>
   );
 }
+

@@ -1,4 +1,4 @@
-export const metadata = { title: "Refund Policy — Anexxa" };
+﻿export const metadata = { title: "Refund Policy â€” Anexxa" };
 export default function RefundsPage() {
   const d = new Date();
   return (
@@ -13,10 +13,11 @@ export default function RefundsPage() {
       <h2>Installment purchases</h2>
       <ul>
         <li>If your purchase is cancelled before code delivery, we will reverse the charge or refund amounts paid.</li>
-        <li>Once a code is delivered, refunds depend on the brand’s policy and redemption status.</li>
+        <li>Once a code is delivered, refunds depend on the brandâ€™s policy and redemption status.</li>
       </ul>
       <h2>How to request</h2>
-      <p>Contact <strong>support@anexxacard.com</strong> with your order ID and details. We reply within 3–5 business days.</p>
+      <p>Contact <strong>support@anexxacard.com</strong> with your order ID and details. We reply within 3â€“5 business days.</p>
     </main>
   );
 }
+

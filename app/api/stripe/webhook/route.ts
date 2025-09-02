@@ -1,5 +1,5 @@
-import { NextRequest } from 'next/server'
-import { stripe, getWebhookSecret } from '@/lib/stripe'
+﻿import { NextRequest } from 'next/server'
+import { stripe, getWebhookSecret } from "x-not-used"
 import { OrdersStore } from '@/lib/orders-store'
 
 export async function POST(req: NextRequest) {
@@ -102,3 +102,4 @@ export async function POST(req: NextRequest) {
 
   return new Response('ok', { status: 200 })
 }
+

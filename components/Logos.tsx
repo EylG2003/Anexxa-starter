@@ -1,4 +1,4 @@
-export default function Logos() {
+﻿export default function Logos() {
   const items = ["Visa", "Mastercard", "Stripe", "Adyen", "Revolut", "Apple Pay", "Google Pay"];
   return (
     <section className="section">
@@ -11,3 +11,4 @@ export default function Logos() {
     </section>
   );
 }
+
