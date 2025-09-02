@@ -7,23 +7,20 @@ export async function POST(req: NextRequest) {
 
     let productName = ''
     let amount: number | null = null
-    let installments: number | null = null
 
     if (contentType.includes('application/json')) {
       const json = await req.json().catch(() => ({}))
       productName = String(json.productName || '')
       amount = Number(json.amount)
-      installments = Number(json.installments)
     } else {
       const form = await req.formData().catch(() => null)
       if (form) {
         productName = String(form.get('productName') || '')
         amount = Number(form.get('amount'))
-        installments = Number(form.get('installments'))
       }
     }
 
-    if (!productName || !Number.isFinite(amount!) || !Number.isFinite(installments!)) {
+    if (!productName || !Number.isFinite(amount!)) {
       return NextResponse.json({ error: 'invalid_request' }, { status: 400 })
     }
 
@@ -45,10 +42,7 @@ export async function POST(req: NextRequest) {
       ],
       payment_method_options: {
         card: {
-          // Enforce 3D Secure for stronger authentication
           request_three_d_secure: 'any',
-          // Keep card installments option visible (handled by card issuer availability)
-          installments: { enabled: true },
         },
       },
       success_url: successUrl,

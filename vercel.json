@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    { "source": "/bnpl", "destination": "/pos", "permanent": true },
+    { "source": "/bnpl/:path*", "destination": "/pos", "permanent": true },
+    { "source": "/gift-cards", "destination": "/pos", "permanent": true },
+    { "source": "/gift-cards/:path*", "destination": "/pos", "permanent": true },
+    { "source": "/installments", "destination": "/pos", "permanent": true }
+  ]
+}

@@ -2,33 +2,33 @@ import CTA from '@/components/CTA'
 import FAQ from '@/components/FAQ'
 import Image from 'next/image'
 
-export const metadata = { title: 'Anexxa POS — For Banks & Merchants' }
+export const metadata = { title: 'Anexxa POS — For Merchants' }
 
 export default function POSPage() {
   return (
     <div className="section">
       <div className="container-xl space-y-10">
         <div className="text-center space-y-4">
-          <p className="badge">Enterprise</p>
-          <h1 className="h1">POS that unlocks BNPL at checkout.</h1>
-          <p className="p max-w-2xl mx-auto">Tap to Pay, QR, and Chip+PIN with instant installments, loyalty, and risk controls — white-label or SDK. Go live in weeks.</p>
+          <p className="badge">POS</p>
+          <h1 className="h1">Turn any phone into a POS.</h1>
+          <p className="p max-w-2xl mx-auto">Tap to Pay, Chip+PIN, and lightweight terminals — fast, secure, and hardware‑optional. Powered by Stripe.</p>
         </div>
 
         {/* Single image under headline */}
         <div className="grid gap-4">
           <div className="card overflow-hidden">
-            <Image src="/pos-retail.PNG" alt="Installments at real-world checkout" width={1400} height={900} className="w-full h-auto" />
+            <Image src="/pos-retail.PNG" alt="Accept in-person card payments" width={1400} height={900} className="w-full h-auto" />
           </div>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
           {[
-            {h:'Tap to Pay', p:'Android/iOS terminals — no extra hardware.'},
-            {h:'Installments', p:'Offer BNPL at in‑store POS and online.'},
-            {h:'SDK + Sandbox', p:'Docs, sample apps, and webhooks.'},
-            {h:'Risk Engine', p:'Rules, limits, velocity checks (roadmap).'},
-            {h:'Loyalty & Offers', p:'Attach rewards to every transaction.'},
-            {h:'White‑label', p:'Theme the entire experience to your brand.'},
+            {h:'Tap to Pay', p:'Accept contactless payments on iPhone and compatible Android devices.'},
+            {h:'Android POS App', p:'Works with popular PAX/Sunmi terminals.'},
+            {h:'Instant Setup', p:'Connect your Stripe account and start in minutes.'},
+            {h:'Reporting', p:'Real-time sales and payouts.'},
+            {h:'Security', p:'PCI-compliant processing and 3DS where required.'},
+            {h:'Integrations', p:'APIs and webhooks for your back office.'},
           ].map(i => (
             <div key={i.h} className="card p-6">
               <p className="h3">{i.h}</p>
