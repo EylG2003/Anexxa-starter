@@ -1,26 +1,10 @@
 ﻿"use client";
-
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-
-function navItem(href: string, label: string, currentPath: string) {
-  const active = currentPath === href;
-  return (
-    <Link
-      href={href}
-      className={"px-3 py-2 rounded-full text-sm hover:bg-white/5" + (active ? " bg-white/10" : "")}
-    >
-      {label}
-    </Link>
-  );
-}
 
 export default function Navbar() {
-  const pathname = usePathname() || "/";
-
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-transparent border-b border-white/20">
-      <div className="container-xl flex items-center justify-between h-16 px-4 md:px-0">
+      <div className="container-xl flex items-center justify-between h-16 px-4">
         <Link href="/" className="flex items-center gap-3">
           <div className="size-9 grid place-items-center rounded-xl bg-white/10 border border-white/20">
             <span className="text-xl">⚖️</span>
@@ -29,11 +13,11 @@ export default function Navbar() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-2">
-          {navItem("/", "Home", pathname)}
-          {navItem("/pos", "POS System", pathname)}
-          {navItem("/pricing", "Pricing", pathname)}
-          {navItem("/partners", "Partners", pathname)}
-          {navItem("/contact", "Contact", pathname)}
+          <Link href="/" className="px-3 py-2 rounded-full text-sm hover:bg-white/5">Home</Link>
+          <Link href="/pos" className="px-3 py-2 rounded-full text-sm hover:bg-white/5">POS System</Link>
+          <Link href="/pricing" className="px-3 py-2 rounded-full text-sm hover:bg-white/5">Pricing</Link>
+          <Link href="/partners" className="px-3 py-2 rounded-full text-sm hover:bg-white/5">Partners</Link>
+          <Link href="/contact" className="px-3 py-2 rounded-full text-sm hover:bg-white/5">Contact</Link>
         </nav>
 
         <div className="flex items-center gap-2">
